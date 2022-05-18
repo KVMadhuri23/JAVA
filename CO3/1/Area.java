@@ -1,47 +1,35 @@
-class Shape{
-	double x;
-	Shape(double a){
-		x=a;
-	}
+import java.util.Scanner;
+class calculate
+{
+void area(int a)
+{
+	System.out.println("The area of Square is "+a*a);
+} 
+void area(int l,int w)
+{
+	System.out.println("The area of rectangle is "+l*w);
 }
-class Rectangle extends Shape{
-	double y;
-	Rectangle(double a,double b){
-		super(a);
-		y=b;
-	}
-	void area(double x,double y){
-		System.out.println("Area of rectangle:"+(x*y));
-	}
+void area(double r)
+{
+	System.out.println("The area of circle is "+(3.14*r*r));
 }
-class Square extends Shape{
-	Square(double a){
-		super(a);
-	}
-	void area(double x){
-		System.out.println("Area of square:"+(x*x));
-	}
 }
-class Circle extends Shape{
-	Circle(double a){
-		super(a);
-	}
-	void area(double x){
-		System.out.println("Area of circle:"+(3.14*x*x));
-	}
+class Area
+{
+public static void main(String args[])
+{
+Scanner s = new Scanner(System.in);
+calculate c=new calculate();
+System.out.println("Enter the length of a Square: ");
+int a=s.nextInt();
+System.out.println("Enter the length of Rectangle");
+int l=s.nextInt();
+System.out.println("Enter the breadth of Rectangle");
+int w=s.nextInt();
+System.out.println("Enter the radius of Circle");
+double r=s.nextDouble();
+c.area(a);
+c.area(l,w);
+c.area(r);
 }
-class Area{
-	public static void main(String args[]){
-		
-		Rectangle r=new Rectangle(8,6);
-		Square s=new Square(4);
-		Circle c=new Circle(3);
-		Shape ref;
-		ref=r;
-		r.area(4,5);
-		ref=s;
-		s.area(4);
-		ref=c;
-		c.area(2);
-	}
 }

@@ -1,59 +1,70 @@
 import java.util.Scanner;
-class Employee{
-	int empId;
-	String name;
-	double salary;
-	String address;
-
-	Employee(){
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the empId:");
-		empId=sc.nextInt();
-		System.out.println("Enter the name:");
-		name=sc.next();
-		System.out.println("Enter the salary:");
-		salary=sc.nextInt();
-		System.out.println("Enter the address:");
-		address=sc.next();
+class Employee
+{
+	int Empid;
+	String Name; 
+	double Salary;
+	String Address;
+	Employee(int id,String name,double sal,String add)
+	{
+		this.Empid=id;
+		this.Name=name;
+		this.Salary=sal;
+		this.Address=add;
 	}
-	
 }
-class Teacher extends Employee{
+class Teacher extends Employee
+{
 	String department;
-	String subject;
-
-	Teacher(){
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the department:");
-		department=sc.next();
-		System.out.println("Enter the subject taught:");
-		subject=sc.next();
-		System.out.println();
-		}
-	void display(){
-			System.out.println("empId:"+empId);
-			System.out.println("name:"+name);
-			System.out.println("salary:"+salary);
-			System.out.println("address:"+address);
-			System.out.println("department:"+department);
-			System.out.println("subject:"+subject);
-			System.out.println();
-		}
-	
-}
-class Inheritance{
-	public static void main(String ar[]){
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter no. of teachers:");
-		int n=sc.nextInt();
-		Teacher[] teacher=new Teacher[n];
-		for(int i=0;i<n;i++)
-		teacher[i]=new Teacher();
-		System.out.println("Details of teachers");
-		for(int i=0;i<n;i++){
-			System.out.println();
-			teacher[i].display();
-		}
-	
+	String Subjects_taught;
+	Teacher(int id,String name,double sal,String add,String dept,String sub)
+	{
+		super(id,name,sal,add);
+		this.department=dept;
+		this.Subjects_taught=sub;
+	}
+	void display()
+	{
+		System.out.println("Empid : "+Empid);
+		System.out.println("Name : "+Name);
+		System.out.println("Salary : "+Salary);
+		System.out.println("Address : "+Address);
+		System.out.println("Department : "+department);
+		System.out.println("Subject : "+Subjects_taught);
 	}
 }
+class Inheritance
+{
+	public static void main(String args[])
+	{
+		System.out.println("Enter the numberof employees");
+		Scanner s= new Scanner(System.in);
+		int n=s.nextInt();
+		Teacher a[]=new Teacher[n];
+		for(int i=0;i<n;i++)
+		{
+		System.out.println("Enter the employee id");
+		int id=s.nextInt();
+		System.out.println("Enter the name");
+		String name=s.next();
+		System.out.println("Enter the Salary");
+		double sal=s.nextDouble();
+		System.out.println("Enter the Address");
+		String add=s.next();
+		System.out.println("Enter the Department");
+		String dept=s.next();
+		System.out.println("Enter the Subject taught");
+		String sub=s.next();	
+		a[i]=new Teacher(id,name,sal,add,dept,sub);
+		}
+	System.out.println("\n********Informations of all the employee's************");
+    	for(int i=0;i<n;i++){
+        	int j=i+1;
+        	System.out.println("\n"+j+").");
+        	a[i].display();
+	}
+}
+}
+
+
+
